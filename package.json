@@ -10,7 +10,7 @@
     "url": "git@github.com:coreui/coreui-free-vue-admin-template.git"
   },
   "license": "MIT",
-  "author": "The CoreUI Team (https://github.com/orgs/coreui/people)",
+  "author": "JS Thibault & RAC https://github.com/jsthibault",
   "scripts": {
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

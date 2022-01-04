@@ -1,13 +1,7 @@
 import { defineComponent, h, onMounted, ref, resolveComponent } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
-import {
-  CBadge,
-  CSidebarNav,
-  CNavItem,
-  //CNavGroup,
-  CNavTitle,
-} from '@coreui/vue'
+import { CBadge, CSidebarNav, CNavItem, CNavTitle } from '@coreui/vue'
 import nav from '@/_nav.js'
 
 const normalizePath = (path) =>
@@ -26,7 +20,6 @@ const isActiveLink = (route, link) => {
 
   const currentPath = normalizePath(route.path)
   const targetPath = normalizePath(link)
-
   return currentPath === targetPath
 }
 
@@ -46,7 +39,6 @@ const AppSidebarNav = defineComponent({
   name: 'AppSidebarNav',
   components: {
     CNavItem,
-    //CNavGroup,
     CNavTitle,
   },
   setup() {
@@ -60,7 +52,6 @@ const AppSidebarNav = defineComponent({
     const renderItem = (item) => {
       if (item.items) {
         return h(
-          // CNavGroup,
           {
             ...(firstRender.value && {
               visible: item.items.some((child) => isActiveItem(route, child)),

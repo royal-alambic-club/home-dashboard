@@ -12,8 +12,6 @@
 </template>
 
 <script>
-/* eslint-disable */
-// import { CChart } from '@coreui/vue-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils/src'
 
 function random(min, max) {
@@ -22,9 +20,7 @@ function random(min, max) {
 
 export default {
   name: 'MainChartExample',
-  components: {
-    // CChart,
-  },
+  components: {},
   setup() {
     const data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

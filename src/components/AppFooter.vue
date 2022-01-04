@@ -14,7 +14,7 @@
       <span class="me-1">
         Powered by : JS Mowgli & CoreUI VUEJS
         <a href="https://github.com/jsthibault">
-          <CIcon :icon="cibGithub" size="xl" />
+          <!-- <CIcon :icon="cibGithub" size="xl" /> -->
         </a>
       </span>
     </div>

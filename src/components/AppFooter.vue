@@ -12,10 +12,11 @@
     </div>
     <div class="ms-auto">
       <span class="me-1">
-        Powered by : JS Mowgli & CoreUI VUEJS
+        Powered by : JS Mowgli
         <a href="https://github.com/jsthibault">
-          <!-- <CIcon :icon="cibGithub" size="xl" /> -->
+          <CIcon icon="cib-Github" />
         </a>
+        & CoreUI VUEJS
       </span>
     </div>
   </CFooter>

@@ -17,7 +17,7 @@ class HueLight {
   }
 
   switchState() {
-    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'https://' + api_url);
+    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'http://' + api_url);
     this.on = !this.on;
     fetch(url.toString(), {
       method: 'PUT',
@@ -39,7 +39,7 @@ class HueLight {
   }
 
   changeBright() {
-    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'https://' + api_url);
+    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'http://' + api_url);
     fetch(url.toString(), {
       method: 'PUT',
       body: JSON.stringify({
@@ -181,7 +181,7 @@ export default {
   methods: {
     initHueLightsMap: function () {
       let reg_res = [];
-      let url     = new URL('/api/' + hue_app_token + '/lights', 'https://' + api_url);
+      let url     = new URL('/api/' + hue_app_token + '/lights', 'http://' + api_url);
 
       fetch(url.toString())
         .then((response) => {
@@ -219,7 +219,7 @@ export default {
     },
     updateLightsMap: function () {
       let reg_res = [];
-      let url     = new URL('/api/' + hue_app_token + '/lights', 'https://' + api_url);
+      let url     = new URL('/api/' + hue_app_token + '/lights', 'http://' + api_url);
 
       fetch(url.toString())
         .then((response) => {

@@ -5,6 +5,16 @@ const group_regex     = /(^[a-zA-Z ]*)([ \d]*\d$)/
 const hue_color_model = [
   "LCT015" 
 ]
+const icon_map        = [
+  ["manger", "dinerroom.svg"],
+  ["salon", "livingroom.svg"],
+  ["bain", "bathroom.svg"],
+  ["cuisine", "kitchen.svg"],
+  ["chambre", "bedroom.svg"],
+  ["coucher", "bedroom.svg"],
+  ["couloir", "corridor.svg"],
+  ["bureau", "office.svg"]
+]
 
 class HueLight {
   constructor(name, on, id, bright, model_id) {
@@ -14,10 +24,18 @@ class HueLight {
     this.model_id = model_id;
     this.is_color = hue_color_model.includes(this.model_id);
     this.bright   = bright;
+    this.icon     = null;
+
+    for (let [icon_name, icon_path] of  icon_map  ) {
+      if (this.label.toLowerCase().includes(icon_name)) {
+        console.log("match " + this.label.toLowerCase() + " " + icon_name)
+        this.icon = require("../../assets/icons/rooms/" + icon_path); 
+      }
+    }
   }
 
   switchState() {
-    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'https://' + api_url);
+    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'http://' + api_url);
     this.on = !this.on;
     fetch(url.toString(), {
       method: 'PUT',
@@ -39,7 +57,7 @@ class HueLight {
   }
 
   changeBright() {
-    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'https://' + api_url);
+    let url = new URL('/api/' + hue_app_token + '/lights/' + this.value + '/state', 'http://' + api_url);
     fetch(url.toString(), {
       method: 'PUT',
       body: JSON.stringify({
@@ -79,6 +97,7 @@ class HueLightGroup {
 
     let light = new HueLight(name + "(Tout)", this.on, this.value, this.bright, this.is_color);
     this.group.push(light);
+    this.icon = light.icon;
   }
 
   // if one light of the group is on, the all selected button will be on
@@ -161,7 +180,8 @@ class HueLightGroup {
 
 export default {
   created: function () {
-    this.initHueLightsMap()
+    this.initHueLightsMap();
+    console.log(this.hue_lights_map);
     this.interval = setInterval(() => {
       this.updateLightsMap();
     }, 5000);
@@ -181,7 +201,7 @@ export default {
   methods: {
     initHueLightsMap: function () {
       let reg_res = [];
-      let url     = new URL('/api/' + hue_app_token + '/lights', 'https://' + api_url);
+      let url     = new URL('/api/' + hue_app_token + '/lights', 'http://' + api_url);
 
       fetch(url.toString())
         .then((response) => {
@@ -219,7 +239,7 @@ export default {
     },
     updateLightsMap: function () {
       let reg_res = [];
-      let url     = new URL('/api/' + hue_app_token + '/lights', 'https://' + api_url);
+      let url     = new URL('/api/' + hue_app_token + '/lights', 'http://' + api_url);
 
       fetch(url.toString())
         .then((response) => {

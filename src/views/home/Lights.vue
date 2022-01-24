@@ -3,7 +3,7 @@
     <CCol>
       <CCard>
         <CCardHeader>
-          <CIcon icon="cil-Lightbulb" />
+          <CIcon icon="cil-Lightbulb" size="xl" />
           Lumières Phillips Hue
         </CCardHeader>
         <CCardBody>

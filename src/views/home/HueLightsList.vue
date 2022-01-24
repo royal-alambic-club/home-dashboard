@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable -->
   <br />
   <div
     id="Lights"
@@ -8,16 +9,28 @@
   >
     <CCard>
       <CCardBody>
-        <CCardTitle>{{ light.label }}</CCardTitle>
-        <CFormSwitch
-          size="xl"
-          v-bind:id="light.label"
-          :checked="light.on == true"
-          v-on:click="light.switchState()"
-          track-by="$index"
-          v-bind:key="light.on"
-          style="width: 14%"
-        />
+        <CCardTitle>
+          <div v-if="light.on == true">
+            <img v-if="light.icon != null" v-bind:src="light.icon" style="width: 37px"/>
+              {{ light.label }}
+            <img src="../../assets/icons/bulb_on.png" style="width: 25px"/>
+          </div>
+          <div v-else>
+            <img v-if="light.icon != null" v-bind:src="light.icon" style="width: 37px"/>
+              {{ light.label }}
+            <img src="../../assets/icons/bulb_off.png" style="width: 25px"/>
+          </div>
+        </CCardTitle>
+        <div style="width: 33%">         
+          <CFormSwitch
+            size="xl"
+            v-bind:id="light.label"
+            :checked="light.on == true"
+            v-on:click="light.switchState()"
+            track-by="$index"
+            v-bind:key="light.on"
+          />
+        </div>
         <br />
         <div v-if="light.is_color == true">
           <CFormInput

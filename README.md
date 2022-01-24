@@ -11,7 +11,7 @@ Supports :
 
 ## Lights panel
 
-![Light panel](https://github.com/royal-alambic-club/home-dashboard/blob/fe66e7e625b231caf30d7053e2d36d34ea261aed/.github/images/lights_exemples.png)
+![Light panel](https://github.com/royal-alambic-club/home-dashboard/blob/main/.github/images/lights_panel.png?raw=true)
 
 ## Configuration
 

@@ -1,3 +1,11 @@
+import NetatmoWeather from './NetatmoWeather.vue'
+
 export default {
-  name: 'Typography',
+  components: {
+    NetatmoGraphs: NetatmoWeather,
+  },
+  methods: {},
+  data() {
+    return {}
+  },
 }

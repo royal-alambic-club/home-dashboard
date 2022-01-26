@@ -13,12 +13,12 @@
           <div v-if="light.on == true">
             <img v-if="light.icon != null" v-bind:src="light.icon" style="width: 37px"/>
               {{ light.label }}
-            <img src="../../assets/icons/bulb_on.png" style="width: 25px"/>
+            <img src="../../assets/icons/bulb_on.png" style="width: 25px" align="right"/>
           </div>
           <div v-else>
             <img v-if="light.icon != null" v-bind:src="light.icon" style="width: 37px"/>
               {{ light.label }}
-            <img src="../../assets/icons/bulb_off.png" style="width: 25px"/>
+            <img src="../../assets/icons/bulb_off.png" style="width: 25px" align="right"/>
           </div>
         </CCardTitle>
         <div style="width: 33%">         

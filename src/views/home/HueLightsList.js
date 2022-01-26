@@ -28,7 +28,6 @@ class HueLight {
 
     for (let [icon_name, icon_path] of  icon_map  ) {
       if (this.label.toLowerCase().includes(icon_name)) {
-        console.log("match " + this.label.toLowerCase() + " " + icon_name)
         this.icon = require("../../assets/icons/rooms/" + icon_path); 
       }
     }
@@ -181,15 +180,14 @@ class HueLightGroup {
 export default {
   created: function () {
     this.initHueLightsMap();
-    console.log(this.hue_lights_map);
     this.interval = setInterval(() => {
       this.updateLightsMap();
     }, 5000);
   },
   beforeUnmount() {
     if (this.interval) {
-      clearIntervall(this.interval)
-      this.interval = undefined
+      clearInterval(this.interval);
+      this.interval = undefined;
     }
   },
   data() {

@@ -10,7 +10,7 @@ export default {
   computed: {
     defaultData() {
       return {
-        labels: ['months', 'a', 'b', 'c', 'd'],
+        labels: ['months', 'a', 'b', 'c', 'd', 'e', 'f'],
         datasets: [
           {
             label: 'Data One',
@@ -20,7 +20,7 @@ export default {
           {
             label: 'Data Two',
             backgroundColor: 'rgb(0,216,255,0.9)',
-            data: [39, 80, 40, 35, 40, 20, 45],
+            data: [39, 80, 40, 35, 40, 20, 45, 89, 90, 90, 90],
           },
         ],
       }
